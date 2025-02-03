@@ -13,17 +13,11 @@ namespace Entity.Models
         public bool Activo { get; set; }
         public DateTime CreateAt { get; set; }
         public DateTime UpdateAt { get; set; }
-        public DateTime DeleteAt { get; set; }
+        public DateTime? DeleteAt { get; set; }
         public int UserId { get; set; }
-        public Usuario Usuario { get; set; } = new Usuario();
+        public User User { get; set; } = new User();
         public int ProductId { get; set; }
         public Product Product { get; set; } = new Product();
-        
-        
-
-
-
-
-
+        public List<Product> Items { get; set; } = new List<Product>();
     }
 }

@@ -18,7 +18,6 @@ namespace Data.Implementations
         {
             _context = context;
         }
-
         public async Task<IEnumerable<Cart>> GetAll()
         {
             try
@@ -31,12 +30,14 @@ namespace Data.Implementations
                 throw;
             }
         }
-
         public async Task<Cart> GetById(int id)
         {
             try
             {
-                return await _context.Set<Cart>().FindAsync(id);
+                return await _context.Set<Cart>()
+                    .Include(c => c.User)
+                    .Include(c => c.Product)
+                    .FirstOrDefaultAsync(c => c.Id == id);
             }
             catch (Exception ex)
             {
@@ -44,7 +45,6 @@ namespace Data.Implementations
                 throw;
             }
         }
-
         public async Task<Cart> Save(Cart cart)
         {
             try
@@ -59,7 +59,6 @@ namespace Data.Implementations
                 throw;
             }
         }
-
         public async Task Update(Cart cart)
         {
             try
@@ -73,7 +72,6 @@ namespace Data.Implementations
                 throw;
             }
         }
-
         public async Task Delete(int id)
         {
             try

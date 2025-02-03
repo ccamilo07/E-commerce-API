@@ -17,7 +17,6 @@ namespace Business.Implementations
         {
             _cartData = cartData;
         }
-
         public async Task<IEnumerable<Cart>> GetAll()
         {
             try
@@ -30,7 +29,6 @@ namespace Business.Implementations
                 throw;
             }
         }
-
         public async Task<Cart> GetById(int id)
         {
             try
@@ -43,7 +41,6 @@ namespace Business.Implementations
                 throw;
             }
         }
-
         public async Task<Cart> Save(Cart cart)
         {
             try
@@ -59,7 +56,6 @@ namespace Business.Implementations
                 throw;
             }
         }
-
         public async Task Update(Cart cart)
         {
             try
@@ -72,7 +68,6 @@ namespace Business.Implementations
                 throw;
             }
         }
-
         public async Task Delete(int id)
         {
             try
@@ -86,5 +81,4 @@ namespace Business.Implementations
             }
         }
     }
-
 }

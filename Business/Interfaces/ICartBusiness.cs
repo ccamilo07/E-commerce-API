@@ -15,5 +15,4 @@ namespace Business.Interfaces
         Task Update(Cart cart);
         Task Delete(int id);
     }
-
 }
