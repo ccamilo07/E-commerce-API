@@ -11,37 +11,37 @@ using ZstdSharp.Unsafe;
 
 namespace Business.Implementations
 {
-    public class CityBusiness: ICityBusiness 
+    public class CityBusiness : ICityBusiness
     {
-        private readonly ICityData cityData;
+        private readonly ICityData _cityData;
 
-        public CityBusiness (ICityData cityData)
+        public CityBusiness(ICityData cityData)
         {
-            this.cityData = cityData;
+            _cityData = cityData;
         }
+
         public async Task<IEnumerable<City>> GetAll()
         {
             try
             {
-                IEnumerable<City> cities = await cityData.Getall();
-                return cities;
+                return await _cityData.GetAll();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al consultar City {ex.Message}");
+                Console.WriteLine($"Error en GetAll (CityBusiness): {ex.Message}");
                 throw;
             }
         }
+
         public async Task<City> GetById(int id)
         {
             try
             {
-                City city = await cityData.GetById(id);
-                return city;
+                return await _cityData.GetById(id);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al consulta Id City {ex.Message}");
+                Console.WriteLine($"Error en GetById (CityBusiness): {ex.Message}");
                 throw;
             }
         }
@@ -50,12 +50,14 @@ namespace Business.Implementations
         {
             try
             {
-                return await cityData.Save(city);
-               
+                if (string.IsNullOrEmpty(city.Name))
+                    throw new Exception("El nombre de la ciudad no puede estar vacío.");
+
+                return await _cityData.Save(city);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al guardar City {ex.Message}");
+                Console.WriteLine($"Error en Save (CityBusiness): {ex.Message}");
                 throw;
             }
         }
@@ -63,12 +65,12 @@ namespace Business.Implementations
         public async Task Update(City city)
         {
             try
-            {                
-                await cityData.Update(city);
+            {
+                await _cityData.Update(city);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al Actulizar City {ex.Message}");
+                Console.WriteLine($"Error en Update (CityBusiness): {ex.Message}");
                 throw;
             }
         }
@@ -77,12 +79,13 @@ namespace Business.Implementations
         {
             try
             {
-                await cityData.Delete(id);
+                await _cityData.Delete(id);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al eliminar City{ex.Message}");
+                Console.WriteLine($"Error en Delete (CityBusiness): {ex.Message}");
+                throw;
             }
-
+        }
     }
 }
