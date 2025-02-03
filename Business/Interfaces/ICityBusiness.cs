@@ -11,9 +11,8 @@ namespace Business.Interfaces
     {
         Task<IEnumerable<City>> GetAll();
         Task<City> GetById(int id);
-        Task Update (City city);
-        Task <City> Save (City city);
-        Task Delete (int id);
-
+        Task<City> Save(City city);
+        Task Update(City city);
+        Task Delete(int id);
     }
 }
