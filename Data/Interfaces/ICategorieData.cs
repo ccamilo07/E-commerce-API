@@ -9,9 +9,10 @@ namespace Data.Interfaces
 {
     public interface ICategorieData
     {
-        Task<IEnumerable<Categoria>> GetAll();
-        Task<Categoria> GetById(int id);
-        Task update(Categoria categoria);
-        Task<Categoria> Save(Categoria categoria);
+        Task<IEnumerable<Categorie>> GetAll();
+        Task<Categorie> GetById(int id);
+        Task update(Categorie categorie);
+        Task<Categorie> Save(Categorie categorie);
+        
     }
 }

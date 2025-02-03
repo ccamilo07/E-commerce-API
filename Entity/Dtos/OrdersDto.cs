@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entity.Dtos
 {
-    public class OrderDto
+    public class OrdersDto
     {
         public int Id { get; set; }
         public string Status { get; set; }

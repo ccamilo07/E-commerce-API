@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entity.Models
 {
-    public class Categoria
+    public class Categorie
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public required string Name { get; set; }
     }
 }

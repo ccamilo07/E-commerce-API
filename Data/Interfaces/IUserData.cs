@@ -9,9 +9,9 @@ namespace Data.Interfaces
 {
     public interface IUserData
     {
-        Task<Usuario> GetById(int id);
-        Task Update (Usuario usuario);
-        Task<Usuario> Save (Usuario usuario);
+        Task<User> GetById(int id);
+        Task Update (User usuario);
+        Task<User> Save (User user);
         Task Delete (int id);
     }
 }

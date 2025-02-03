@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace Data.Interfaces
 {
-    public interface IOrderData
+    public interface IOrdersData
     {
       
         Task<IEnumerable<Orders>> GetAll();
         Task<Orders> GetById(int id);
-        Task update(Orders order);
-        Task<Orders> Save(Orders order);
-
+        Task update(Orders orders);
+        Task<Orders> Save(Orders orders);
     }
 }
