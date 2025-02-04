@@ -32,7 +32,7 @@ namespace Data.Implementations
             }
         }
 
-        public async Task<IEnumerable<City>> Getall()
+        public async Task<IEnumerable<City>> GetAll()
         {
             try
             {
