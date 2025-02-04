@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Business.Interfaces;
 using Data.Interfaces;
+using Entity.Models;
 using Mysqlx.Crud;
 
 namespace Business.Implementations
@@ -18,7 +19,7 @@ namespace Business.Implementations
             _ordersData = ordersData;
         }
 
-        public async Task<IEnumerable<Order>> GetAll()
+        public async Task<IEnumerable<Orders>> GetAll()
         {
             try
             {
@@ -31,7 +32,7 @@ namespace Business.Implementations
             }
         }
 
-        public async Task<Order> GetById(int id)
+        public async Task<Orders> GetById(int id)
         {
             try
             {
@@ -44,14 +45,14 @@ namespace Business.Implementations
             }
         }
 
-        public async Task<Order> Save(Order order)
+        public async Task<Orders> Save(Orders orders)
         {
             try
             {
-                if (order.TotalAmount <= 0)
+                if (orders.TotalAmount <= 0)
                     throw new Exception("El total del pedido debe ser mayor a cero.");
 
-                return await _ordersData.Save(order);
+                return await _ordersData.Save(orders);
             }
             catch (Exception ex)
             {
@@ -60,11 +61,11 @@ namespace Business.Implementations
             }
         }
 
-        public async Task Update(Order order)
+        public async Task Update(Orders orders)
         {
             try
             {
-                await _ordersData.Update(order);
+                await _ordersData.Update(orders);
             }
             catch (Exception ex)
             {

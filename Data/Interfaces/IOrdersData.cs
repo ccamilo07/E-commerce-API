@@ -14,5 +14,6 @@ namespace Data.Interfaces
         Task<Orders> GetById(int id);
         Task Update(Orders orders);
         Task<Orders> Save(Orders orders);
+        Task Delete(int id);
     }
 }

@@ -13,6 +13,7 @@ namespace Data.Interfaces
         Task<Categorie> GetById(int id);
         Task Update(Categorie categorie);
         Task<Categorie> Save(Categorie categorie);
+        Task Delete(int id);
         
     }
 }

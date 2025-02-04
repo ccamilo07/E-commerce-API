@@ -9,6 +9,7 @@ namespace Data.Interfaces
 {
     public interface IUserData
     {
+        Task<IEnumerable<User>> GetAll();
         Task<User> GetById(int id);
         Task Update (User usuario);
         Task<User> Save (User user);

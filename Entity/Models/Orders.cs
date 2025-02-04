@@ -8,7 +8,8 @@ namespace Entity.Models
 {
     public class Orders
     {
-        public int Id { get; set; }     
+        public int Id { get; set; } 
+        public double TotalAmount { get; set; }
         public DateOnly Date {  get; set; }
         public string Status { get; set; }
         public decimal Total { get; set; }
