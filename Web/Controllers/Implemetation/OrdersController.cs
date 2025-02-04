@@ -1,4 +1,5 @@
 ﻿using Business.Interfaces;
+using Entity.Models;
 using Microsoft.AspNetCore.Mvc;
 using Mysqlx.Crud;
 
@@ -14,7 +15,7 @@ namespace Web.Controllers.Implemetation
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Order>>> GetAll()
+        public async Task<ActionResult<IEnumerable<Orders>>> GetAll()
         {
             try
             {
@@ -29,13 +30,13 @@ namespace Web.Controllers.Implemetation
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Order>> GetById(int id)
+        public async Task<ActionResult<Orders>> GetById(int id)
         {
             try
             {
-                var order = await _ordersBusiness.GetById(id);
-                if (order == null) return NotFound("Orden no encontrada.");
-                return Ok(order);
+                var orders = await _ordersBusiness.GetById(id);
+                if (orders == null) return NotFound("Orden no encontrada.");
+                return Ok(orders);
             }
             catch (Exception ex)
             {
@@ -45,12 +46,12 @@ namespace Web.Controllers.Implemetation
         }
 
         [HttpPost]
-        public async Task<ActionResult<Order>> Save([FromBody] Order order)
+        public async Task<ActionResult<Orders>> Save([FromBody] Orders orders)
         {
             try
             {
-                var newOrder = await _ordersBusiness.Save(order);
-                return CreatedAtAction(nameof(GetById), new { id = newOrder.Id }, newOrder);
+                var newOrders = await _ordersBusiness.Save(orders);
+                return CreatedAtAction(nameof(GetById), new { id = newOrders.Id }, newOrders);
             }
             catch (Exception ex)
             {
@@ -60,11 +61,11 @@ namespace Web.Controllers.Implemetation
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] Order order)
+        public async Task<IActionResult> Update([FromBody] Orders orders)
         {
             try
             {
-                await _ordersBusiness.Update(order);
+                await _ordersBusiness.Update(orders);
                 return NoContent();
             }
             catch (Exception ex)
