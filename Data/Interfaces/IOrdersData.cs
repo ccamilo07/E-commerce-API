@@ -12,7 +12,7 @@ namespace Data.Interfaces
       
         Task<IEnumerable<Orders>> GetAll();
         Task<Orders> GetById(int id);
-        Task update(Orders orders);
+        Task Update(Orders orders);
         Task<Orders> Save(Orders orders);
     }
 }

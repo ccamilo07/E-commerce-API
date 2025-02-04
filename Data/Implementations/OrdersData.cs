@@ -82,7 +82,7 @@ namespace Data.Implementations
                 var orders = await _context.Set<Orders>().FindAsync(id);
                 if (orders != null)
                 {
-                    _context.Set<Order>().Remove(orders);
+                    _context.Set<Orders>().Remove(orders);
                     await _context.SaveChangesAsync();
                 }
             }

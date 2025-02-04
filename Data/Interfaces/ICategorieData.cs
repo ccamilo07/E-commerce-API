@@ -11,7 +11,7 @@ namespace Data.Interfaces
     {
         Task<IEnumerable<Categorie>> GetAll();
         Task<Categorie> GetById(int id);
-        Task update(Categorie categorie);
+        Task Update(Categorie categorie);
         Task<Categorie> Save(Categorie categorie);
         
     }

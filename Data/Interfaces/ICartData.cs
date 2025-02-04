@@ -9,6 +9,7 @@ namespace Data.Interfaces
 {
     public interface ICartData
     {
+        Task<IEnumerable<Cart>> GetAll();
         Task<Cart> GetById (int id);
         Task Update (Cart cart);
         Task<Cart> Save (Cart cart);

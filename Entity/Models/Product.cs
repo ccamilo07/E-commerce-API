@@ -17,6 +17,6 @@ namespace Entity.Models
         public DateTime UpdateAt { get; set; }
         public DateTime DeleteAt { get; set; }
         public int CategorieId { get; set; }
-        public Categorie Categorie { get; set; } = new Categorie();
+        public Categorie Categorie { get; set; } = new Categorie { Name = "Sin categoría" };
     }
 }

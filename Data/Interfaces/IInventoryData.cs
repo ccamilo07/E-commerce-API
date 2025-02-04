@@ -11,7 +11,7 @@ namespace Data.Interfaces
     {
         Task<IEnumerable<Inventory>> GetAll();
         Task<Inventory> GetById(int id);
-        Task update(Inventory inventory);
+        Task Update(Inventory inventory);
         Task<Inventory> Save(Inventory inventory);
         Task Delete(int id);
     }

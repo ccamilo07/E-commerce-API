@@ -15,7 +15,7 @@ namespace Data.Interfaces
         /// <returns>
         /// IEnumerable<State>
         /// </returns>
-        Task<IEnumerable<State>> Getall();
+        Task<IEnumerable<State>> GetAll();
 
         /// <summary>
         /// Obtiene el id de la ciudad

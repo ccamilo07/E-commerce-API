@@ -19,7 +19,7 @@ namespace Data.Implementations
         {
             _dbContext = context;
         }
-        public async Task<IEnumerable<State>> Getall()
+        public async Task<IEnumerable<State>> GetAll()
         {
             try
             {
@@ -43,16 +43,59 @@ namespace Data.Implementations
         {
             try
             {
-                var sql = @"Select
-                                Id,
-                          from State
-                            where id=@stateId";
+                var sql = @"Select Id, Name, Active, CountryId from State where Id = {0}";
                 State state = await _dbContext.Set<State>().FromSqlRaw(sql, stateId).FirstOrDefaultAsync();
                 return state;
             }
             catch(Exception ex)
             {
                 Console.WriteLine($"Error al consultar State {ex.Message}");
+                throw;
+            }
+        }
+        public async Task<State> Save(State state)
+        {
+            try
+            {
+                _dbContext.Set<State>().Add(state);
+                await _dbContext.SaveChangesAsync ();
+                return state;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error en Save (StateData): {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task Update(State state)
+        {
+            try
+            {
+                _dbContext.Entry(state).State = EntityState.Modified;
+                await _dbContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error en Update (StateData): {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task Delete(int id)
+        {
+            try
+            {
+                var state = await _dbContext.Set<State>().FindAsync(id);
+                if (state != null)
+                {
+                    _dbContext.Set<State>().Remove(state);
+                    await _dbContext.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error en Delete (StateData): {ex.Message}");
                 throw;
             }
         }

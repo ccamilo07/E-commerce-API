@@ -9,10 +9,10 @@ namespace Data.Interfaces
 {
     public interface ICountryData
     {
-        Task<IEnumerable<Country>> Getall();
+        Task<IEnumerable<Country>> GetAll();
         Task<Country> GetById(int id);
         Task Update(Country country);
-        Task<State> Save(Country country);
+        Task<Country> Save(Country country);
         Task Delete(int id);
     }
 }

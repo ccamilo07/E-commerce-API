@@ -15,7 +15,7 @@ namespace Data.Interfaces
         /// <returns>
         /// IEnumerable<State>
         /// </returns>
-        Task<IEnumerable<Product>> Getall();
+        Task<IEnumerable<Product>> GetAll();
 
         /// <summary>
         /// Obtiene el id del producto

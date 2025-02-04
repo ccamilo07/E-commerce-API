@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entity.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.Interface
 {

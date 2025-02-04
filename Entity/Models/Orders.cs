@@ -17,6 +17,6 @@ namespace Entity.Models
         public DateTime UpdateAt { get; set; }
         public DateTime DeleteAt { get; set; }
         public int UsersId { get; set; }
-        public Usuario Usuario { get; set; } = new Usuario();
+        public User User { get; set; } = new User();
     }
 }
