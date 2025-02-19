@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.Implemetation
 {
+    [Route("api/state")]
     public class StateController : ControllerBase
     {
         private readonly IStateBusiness _stateBusiness;
@@ -28,7 +29,7 @@ namespace Web.Controllers.Implemetation
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("state/{id}")]
         public async Task<ActionResult<State>> GetById(int id)
         {
             try

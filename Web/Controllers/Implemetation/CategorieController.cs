@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.Implemetation
 {
+    [Route("api/categorie")]
     public class CategorieController : ControllerBase
     {
         private readonly ICategorieBusiness _categorieBusiness;
@@ -26,7 +27,7 @@ namespace Web.Controllers.Implemetation
                 return StatusCode(500, "Error interno del servidor.");
             }
         }
-        [HttpGet("{Id}")]
+        [HttpGet("categorie/{Id}")]
         public async Task<ActionResult<Categorie>> GetById(int id)
         {
             try

@@ -5,6 +5,7 @@ using Mysqlx.Crud;
 
 namespace Web.Controllers.Implemetation
 {
+    [Route("api/orders")]
     public class OrdersController : ControllerBase
     {
         private readonly IOrdersBusiness _ordersBusiness;
@@ -29,7 +30,7 @@ namespace Web.Controllers.Implemetation
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("orders/{id}")]
         public async Task<ActionResult<Orders>> GetById(int id)
         {
             try

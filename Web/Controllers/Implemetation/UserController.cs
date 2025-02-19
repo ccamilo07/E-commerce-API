@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.Implemetation
 {
+    [Route("api/user")]
     public class UserController : ControllerBase
     {
         private readonly IUserBusiness _userBusiness;
@@ -28,7 +29,7 @@ namespace Web.Controllers.Implemetation
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("user/{id}")]
         public async Task<ActionResult<User>> GetById(int id)
         {
             try

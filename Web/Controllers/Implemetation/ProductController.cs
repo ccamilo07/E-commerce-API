@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.Implemetation
 {
+    [Route("api/products")]
     public class ProductController : ControllerBase
     {
         private readonly IProductBusiness _productBusiness;
@@ -28,7 +29,7 @@ namespace Web.Controllers.Implemetation
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("product/{id}")]
         public async Task<ActionResult<Product>> GetById(int id)
         {
             try

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
+using Entity.Models;
 using System.Data;
 using System.Reflection;
 using System.Reflection.Emit;

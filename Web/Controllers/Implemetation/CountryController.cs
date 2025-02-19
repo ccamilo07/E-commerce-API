@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.Implemetation
 {
+    [Route("api/country")]
     public class CountryController : ControllerBase
     {
         private readonly ICountryBusiness _countryBusiness;
@@ -28,7 +29,7 @@ namespace Web.Controllers.Implemetation
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("country/{id}")]
         public async Task<ActionResult<Country>> GetById(int id)
         {
             try
