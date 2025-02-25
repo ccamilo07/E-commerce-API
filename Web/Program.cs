@@ -14,10 +14,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Agregar servicios
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-// Agregar servicios de Swagger
-builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -27,12 +23,12 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-
 var app = builder.Build();
 
 // Configurar middleware
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
@@ -42,4 +38,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
